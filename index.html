@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EliteEstates | Luxury Real Estate</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNavbar">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <span class="brand-elite">Elite</span><span class="brand-estates">Estates</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#properties">Properties</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#testimonials">Reviews</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="container position-relative z-2">
+            <div class="row align-items-center">
+                <div class="col-lg-8" data-aos="fade-right">
+                    <span class="badge bg-gold mb-3 px-3 py-2 rounded-pill">Premier Real Estate</span>
+                    <h1 class="display-1 fw-bold text-white mb-4">Discover Your <br><span class="text-gold">Luxury Sanctuary</span></h1>
+                    <p class="lead text-white-50 mb-5 fs-4">Exquisite homes in the world's most sought-after locations. Experience the pinnacle of sophisticated living.</p>
+                    <div class="d-flex gap-3">
+                        <a href="#properties" class="btn btn-gold btn-lg px-5 py-3 rounded-pill fw-bold">Explore Listings</a>
+                        <a href="#about" class="btn btn-outline-light btn-lg px-5 py-3 rounded-pill fw-bold">Our Story</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content (Filter + Grid) -->
+    <main class="container py-5">
+        <div class="row g-4">
+            <!-- Sidebar Filter -->
+            <div class="col-lg-4 col-xl-3">
+                <!-- Mobile Filter Toggle -->
+                <button class="btn btn-dark w-100 d-lg-none mb-3 py-3 rounded-3 d-flex justify-content-between align-items-center" type="button" data-bs-toggle="collapse" data-bs-target="#filterCollapse">
+                    <span><i class="fas fa-filter me-2"></i> Filter Properties</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+
+                <div class="filter-sidebar p-4 bg-white rounded-4 shadow-sm collapse d-lg-block" id="filterCollapse" data-aos="fade-up">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h5 class="fw-bold mb-0">Filters</h5>
+                        <button class="btn btn-link text-dark text-decoration-none p-0 small fw-bold" id="resetBtn">Reset</button>
+                    </div>
+
+                    <!-- Search -->
+                    <div class="mb-4">
+                        <label class="form-label small fw-bold text-uppercase text-muted">Search Location</label>
+                        <div class="position-relative">
+                            <input type="text" class="form-control" id="searchInput" placeholder="Enter address or city...">
+                            <i class="fas fa-search position-absolute end-0 top-50 translate-middle-x text-muted me-2"></i>
+                        </div>
+                    </div>
+
+                    <!-- Price Range -->
+                    <div class="mb-4">
+                        <label class="form-label small fw-bold text-uppercase text-muted">Price Range</label>
+                        <div class="row g-2">
+                            <div class="col-6">
+                                <input type="number" class="form-control" id="priceMin" placeholder="$ From">
+                            </div>
+                            <div class="col-6">
+                                <input type="number" class="form-control" id="priceMax" placeholder="$ To">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Number of Rooms -->
+                    <div class="mb-4">
+                        <label class="form-label small fw-bold text-uppercase text-muted">Number of Rooms</label>
+                        <div class="d-flex flex-wrap gap-2" id="roomFilters">
+                            <div class="form-check-pill">
+                                <input type="checkbox" class="btn-check" id="room1" value="1" autocomplete="off">
+                                <label class="btn btn-outline-secondary" for="room1">1</label>
+                            </div>
+                            <div class="form-check-pill">
+                                <input type="checkbox" class="btn-check" id="room2" value="2" autocomplete="off">
+                                <label class="btn btn-outline-secondary" for="room2">2</label>
+                            </div>
+                            <div class="form-check-pill">
+                                <input type="checkbox" class="btn-check" id="room3" value="3" autocomplete="off">
+                                <label class="btn btn-outline-secondary" for="room3">3</label>
+                            </div>
+                            <div class="form-check-pill">
+                                <input type="checkbox" class="btn-check" id="room4" value="4" autocomplete="off">
+                                <label class="btn btn-outline-secondary" for="room4">4</label>
+                            </div>
+                            <div class="form-check-pill">
+                                <input type="checkbox" class="btn-check" id="room5" value="5" autocomplete="off">
+                                <label class="btn btn-outline-secondary" for="room5">5</label>
+                            </div>
+                            <div class="form-check-pill">
+                                <input type="checkbox" class="btn-check" id="room6" value="6" autocomplete="off">
+                                <label class="btn btn-outline-secondary" for="room6">6+</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bathroom Type -->
+                    <div class="mb-4">
+                        <label class="form-label small fw-bold text-uppercase text-muted">Bathroom</label>
+                        <div class="btn-group w-100" role="group">
+                            <input type="radio" class="btn-check" name="bathType" id="bathAll" checked>
+                            <label class="btn btn-outline-dark" for="bathAll">All</label>
+                            <input type="radio" class="btn-check" name="bathType" id="bathCombined">
+                            <label class="btn btn-outline-dark" for="bathCombined">Combined</label>
+                            <input type="radio" class="btn-check" name="bathType" id="bathSeparate">
+                            <label class="btn btn-outline-dark" for="bathSeparate">Separate</label>
+                        </div>
+                    </div>
+
+                    <!-- Criteria -->
+                    <div class="mb-4">
+                        <label class="form-label small fw-bold text-uppercase text-muted">Basic Criteria</label>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" id="critNew">
+                            <label class="form-check-label small" for="critNew">Newly built</label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" id="critParking">
+                            <label class="form-check-label small" for="critParking">Parking space</label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" id="critPool">
+                            <label class="form-check-label small" for="critPool">Swimming Pool</label>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-dark w-100 py-3 rounded-3 fw-bold" id="applyFilters">Show Results</button>
+                </div>
+            </div>
+
+            <!-- Property Grid -->
+            <div class="col-lg-8 col-xl-9">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h2 class="section-title mb-0">Featured Properties</h2>
+                    <select class="form-select w-auto border-0 bg-transparent fw-bold" id="sortOrder">
+                        <option>Newest First</option>
+                        <option>Price: Low to High</option>
+                        <option>Price: High to Low</option>
+                    </select>
+                </div>
+                <div class="row g-4" id="propertyGrid">
+                    <!-- JS injected here -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- About Section -->
+    <section id="about" class="py-5 bg-white overflow-hidden">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0" data-aos="fade-right">
+                    <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80&w=1073" alt="About Us" class="img-fluid rounded-4 shadow-lg">
+                </div>
+                <div class="col-lg-6 ps-lg-5" data-aos="fade-left">
+                    <h6 class="text-gold fw-bold text-uppercase mb-2">Our Story</h6>
+                    <h2 class="display-5 fw-bold mb-4">EliteEstates: Where Luxury Meets Excellence</h2>
+                    <p class="text-muted mb-4">With over 15 years of experience in the luxury real estate market, we pride ourselves on delivering unparalleled service and exclusive access to the world's most prestigious homes.</p>
+                    <div class="row g-4 mb-4">
+                        <div class="col-6">
+                            <div class="d-flex align-items-center">
+                                <div class="icon-box me-3"><i class="fas fa-award"></i></div>
+                                <div>
+                                    <h5 class="mb-0">Award Winning</h5>
+                                    <small class="text-muted">Best Agency 2023</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="d-flex align-items-center">
+                                <div class="icon-box me-3"><i class="fas fa-home"></i></div>
+                                <div>
+                                    <h5 class="mb-0">500+ Sold</h5>
+                                    <small class="text-muted">Luxury Properties</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn btn-outline-dark px-4 py-2">Learn More</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="section-title">Client Experiences</h2>
+                <div class="title-underline"></div>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="testimonial-card p-4 rounded-4 bg-white shadow-sm h-100">
+                        <div class="stars mb-3 text-warning">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="text-muted italic mb-4">"EliteEstates helped me find my dream penthouse in New York. The process was seamless and professional."</p>
+                        <div class="d-flex align-items-center">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=100" alt="Client" class="rounded-circle me-3" width="50" height="50">
+                            <div>
+                                <h6 class="mb-0 fw-bold">Johnathan Smith</h6>
+                                <small class="text-muted">Tech Executive</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="testimonial-card p-4 rounded-4 bg-white shadow-sm h-100">
+                        <div class="stars mb-3 text-warning">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="text-muted italic mb-4">"The team's knowledge of the Miami luxury market is unmatched. Truly a premium experience from start to finish."</p>
+                        <div class="d-flex align-items-center">
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=100" alt="Client" class="rounded-circle me-3" width="50" height="50">
+                            <div>
+                                <h6 class="mb-0 fw-bold">Sarah Williams</h6>
+                                <small class="text-muted">Interior Designer</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="testimonial-card p-4 rounded-4 bg-white shadow-sm h-100">
+                        <div class="stars mb-3 text-warning">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="text-muted italic mb-4">"Professional, transparent, and efficient. I highly recommend them for high-value real estate investments."</p>
+                        <div class="d-flex align-items-center">
+                            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=100" alt="Client" class="rounded-circle me-3" width="50" height="50">
+                            <div>
+                                <h6 class="mb-0 fw-bold">Michael Chen</h6>
+                                <small class="text-muted">Investor</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5 bg-white">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <h2 class="section-title mb-4">Get in Touch</h2>
+                    <p class="text-muted mb-5">Interested in a property? Contact our elite team today for a private consultation.</p>
+                    
+                    <form id="contactForm">
+                        <div class="mb-3">
+                            <input type="text" class="form-control form-control-lg bg-light border-0" placeholder="Full Name" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="email" class="form-control form-control-lg bg-light border-0" placeholder="Email Address" required>
+                        </div>
+                        <div class="mb-3">
+                            <textarea class="form-control form-control-lg bg-light border-0" rows="5" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-dark btn-lg w-100 py-3">Send Message</button>
+                    </form>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="map-container rounded-4 shadow-sm overflow-hidden h-100">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3305.733248043701!2d-118.4014226!3d34.0736204!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2bc04d6d147ab%3A0xd6c7c379279a4776!2sBeverly%20Hills%2C%20CA%2090210!5e0!3m2!1sen!2sus!4v1690000000000" 
+                            width="100%" height="100%" style="border:0; min-height: 400px;" allowfullscreen="" loading="lazy">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer py-5 bg-dark text-white">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <a class="navbar-brand mb-4 d-block" href="#">
+                        <span class="brand-elite text-white">Elite</span><span class="brand-estates text-gold">Estates</span>
+                    </a>
+                    <p class="text-muted">The leading agency for luxury real estate across the globe. Bringing excellence to every doorstep.</p>
+                    <div class="social-links mt-4">
+                        <a href="#" class="me-3"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="me-3"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <h5 class="mb-4">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#home" class="text-muted text-decoration-none">Home</a></li>
+                        <li><a href="#properties" class="text-muted text-decoration-none">Properties</a></li>
+                        <li><a href="#about" class="text-muted text-decoration-none">About Us</a></li>
+                        <li><a href="#contact" class="text-muted text-decoration-none">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h5 class="mb-4">Services</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-muted text-decoration-none">Property Sales</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">Property Management</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">Investment Advice</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">Valuations</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h5 class="mb-4">Contact Info</h5>
+                    <ul class="list-unstyled text-muted">
+                        <li class="mb-2"><i class="fas fa-map-marker-alt me-2"></i> 123 Beverly Hills, CA</li>
+                        <li class="mb-2"><i class="fas fa-phone me-2"></i> +1 (555) 000-0000</li>
+                        <li><i class="fas fa-envelope me-2"></i> info@eliteestates.com</li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-5 bg-secondary">
+            <div class="text-center text-muted">
+                <p class="mb-0">&copy; 2024 EliteEstates. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Property Details Modal -->
+    <div class="modal fade" id="propertyModal" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content border-0 rounded-4">
+                <div class="modal-body p-0">
+                    <button type="button" class="btn-close btn-close-white position-absolute top-0 end-0 m-3 z-3" data-bs-dismiss="modal"></button>
+                    <div id="modalContent">
+                        <!-- Content will be injected here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
